@@ -10,9 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -29,7 +26,7 @@ public class Main extends Application {
 		grid.setPadding(new Insets(25, 25, 25, 25));
 		
 		Text title = new Text("Welcome");
-		title.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+		title.setId("welcome-text");
 		grid.add(title, 0, 0, 2, 1);
 		
 		Label userName = new Label("User Name:");
@@ -45,19 +42,17 @@ public class Main extends Application {
 		grid.add(pwBox, 1, 2);
 		
 		Text actiontarget = new Text();
+		actiontarget.setId("actiontarget");
 		grid.add(actiontarget, 1, 6);
 		
 		Button btn = new Button("Sign in");
 		btn.setOnAction(e -> {
-			actiontarget.setFill(Color.FIREBRICK);
 			actiontarget.setText("Sign in button pressed");
 		});
 		HBox hbBtn = new HBox(10);
 		hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
 		hbBtn.getChildren().add(btn);
 		grid.add(hbBtn, 1, 4);
-		
-		
 		
 		grid.setGridLinesVisible(true);
 		
